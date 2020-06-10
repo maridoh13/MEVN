@@ -6,6 +6,7 @@ import Posts from '@/components/Posts'
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // Removes the # from url
   routes: [
     {
       path: '/',
