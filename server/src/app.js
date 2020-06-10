@@ -8,4 +8,21 @@ app.use(morgan('combined'));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.listen(process.env.PORT || 8081);
+app.get('/posts', (req, res) => {
+  res.send(
+    [{
+      title: "Hello world",
+      description: "hi there, howdy do?"
+    },
+    {
+      title: "Heya",
+      description: "hi there, good and u?"
+    }]
+  )
+})
+
+
+
+const port = process.env.PORT || 8081
+
+app.listen(port, () => console.log(`Listening on port ${port}`));
