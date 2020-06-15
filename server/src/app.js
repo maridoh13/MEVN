@@ -32,7 +32,7 @@ app.get('/posts', (req, res) => {
 
 // Add new post
 app.post('/posts', (req, res) => {
-  const db = req.db;
+  // const db = req.db;
   const title = req.body.title;
   const description = req.body.description;
 
@@ -55,7 +55,7 @@ app.post('/posts', (req, res) => {
 
 // Fetch single post
 app.get('/post/:id', (req, res) => {
-  var db = req.db;
+  // var db = req.db;
   Post.findById(req.params.id, 'title description', function (error, post) {
     if (error) { console.error(error); }
     res.send(post)
@@ -64,7 +64,7 @@ app.get('/post/:id', (req, res) => {
 
 // Update a post
 app.put('/posts/:id', (req, res) => {
-  var db = req.db;
+  // var db = req.db;
   Post.findById(req.params.id, 'title description', function (error, post) {
     if (error) { console.error(error); }
 
@@ -81,6 +81,19 @@ app.put('/posts/:id', (req, res) => {
   })
 })
 
+// Delete a post
+app.delete('/posts/:id', (req, res) => {
+  // var db = req.db;
+  Post.remove({
+    _id: req.params.id
+  }, function(err, post){
+    if (err)
+      res.send(err)
+    res.send({
+      success: true
+    })
+  })
+})
 
 
 const port = process.env.PORT || 8081
