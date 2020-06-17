@@ -12,7 +12,8 @@ app.use(bodyParser.json());
 app.use(cors());
 
 mongoose.connect(
-  'mongodb://localhost:27017/posts',
+  // 'mongodb://localhost:27017/posts',
+  'mongodb+srv://wally:foundhim@cluster0-kwceg.mongodb.net/jurubeba?retryWrites=true&w=majority',
   { useNewUrlParser: true, useUnifiedTopology: true }
 );
 const db = mongoose.connection;
